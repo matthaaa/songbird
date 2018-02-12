@@ -28,7 +28,16 @@ Additional features:
 
 ## Wireframes
 
+### Main screen
+A main screen will display the timeline with the selected notes if the user has created a melody. It will also have controls for playback and options to start a new melody.
 
+https://www.dropbox.com/s/f2frmqe3seb9op6/New%20Mockup%201.png?dl=0
+
+The melody screen will display information about each note and the upcoming notes as the user selects them.
+
+https://www.dropbox.com/s/gai5sshkesir68u/New%20Mockup%201%20copy.png?dl=0
+
+A keyboard will be visible for both views.
 
 ## Technologies
 
