@@ -2,12 +2,11 @@
 
 ## Background and Overview
 
-Songbird is a music generator that applies basic rules of music theory to guide the user's experience in creating a short melody.
+Songbird is a music generator that applies basic rules of music theory to guide the user's experience in creating a short melody in the key of C.
 
-Users will begin by setting the key of the melody, and select a single note on a keyboard. An algorithm will then determine what notes will be available next, and highlight what can be chosen. The user will then repeat the process of selecting notes, until the generated song reaches a specific length.
+Users begin by selecting a single note on a keyboard. An algorithm then determines what notes are be available next, and highlights what can be chosen. The user will then repeat the process of selecting notes, until the generated song reaches a specific length.
 
-Once a song has been created, the user will be able to play the song back on a loop with automatically generated chords and/or complimentary notes.
-
+Once a song has been created, the user can play the song back on the timeline.
 
 
 ## Functionality and MVPs
@@ -19,9 +18,9 @@ Main features:
 - [ ] Action to select and save sounds from keyboard to timeline
 - [ ] User flow for selecting and submitting next note
 - [ ] Algorithm for determining next note based on current notes / previous notes
-- [ ] Actions to play, pause, reset timeline
+- [ ] Actions to play and reset timeline
 
-Additional features:
+Bonus features / In progress:
 - [ ] Tempo adjustment
 - [ ] Key transposing
 - [ ] Pairing melody with chords
@@ -29,30 +28,24 @@ Additional features:
 ## Wireframes
 
 ### Main screen
-A main screen will display the timeline with the selected notes if the user has created a melody. It will also have controls for playback and options to start a new melody.
+A main screen displays the timeline with the selected notes if the user has created a melody. It also has controls for playback and options to start a new melody.
 
-https://www.dropbox.com/s/f2frmqe3seb9op6/New%20Mockup%201.png?dl=0
+https://www.dropbox.com/s/ucilgijt9m0xpu9/Screenshot%202018-02-16%2001.01.44.png?dl=0
 
-The melody screen will display information about each note and the upcoming notes as the user selects them.
-
-https://www.dropbox.com/s/gai5sshkesir68u/New%20Mockup%201%20copy.png?dl=0
-
-A keyboard will be visible for both views.
+A keyboard will be visible for the main view as well.
 
 ## Technologies
 
 Songbird will include the following technologies:
 
-Structure: Vanilla JavaScript,
+Structure / Sounds: Vanilla JavaScript,
 DOM and rendering: HTML
-Sound generation: Web Audio API
 Bundling: Webpack
 
 Scripts:
-- timeline.js: will handle logic for rendering the main music timeline
-- keyboard.js: will handle rendering keyboard and note selection
-- musical.js: will store main algorithm for choosing notes and applying supplementary chords
-- audio.js: will store audio logic and AudioEvent creation
+- timeline.js: handles logic for rendering the main music timeline
+- keyboard.js: handles rendering keyboard and note selection and store algorithm for next notes
+- main.js: joins timeine and keyboard files together
 
 ## Timeline
 
