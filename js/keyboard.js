@@ -21,7 +21,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function highlightNextKeys(nextKeys) {
     allKeys.forEach((key) => {
-      console.log("key", key);
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
       } else {
@@ -98,6 +97,15 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
         (keyId),
       ]);
     }
+
+    if (
+      lastKey === keyId - 1 && secondLastKey === keyId + 1 ||
+      lastKey === keyId + 1 && secondLastKey === keyId - 1
+    ) {
+      addKeysToNextKeys([
+        (keyId),
+      ]);
+    }
   }
 
   // allKeys.forEach((key) => (
@@ -117,6 +125,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function clearKeys() {
     selectedKeys = [];
+    allKeys.forEach((key) => {
+      key.classList = "white-key";
+    });
     new timeline(keysByNoteName, selectedKeys)
     context.clearRect(0, 0, timelineCanvas.width, timelineCanvas.height);
   }
