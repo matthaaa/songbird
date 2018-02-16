@@ -23,9 +23,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     allKeys.forEach((key) => {
       console.log("key", key);
       if (nextKeys.includes(Number(key.dataset.index))) {
-        key.classList.add("valid-key");
+        key.classList = "white-key valid-key";
       } else {
-        key.classList = "white-key";
+        key.classList = "white-key invalid-key";
       }
     });
   }
@@ -42,15 +42,58 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function updateNextKeys(keyId=7) {
     nextKeys = [];
-    if (selectedKeys[selectedKeys.length - 1] === keyId) {
+    lastKey = selectedKeys[selectedKeys.length - 1];
+    secondLastKey = selectedKeys[selectedKeys.length - 2];
+
+    if (lastKey === keyId) {
       addKeysToNextKeys([
         (keyId),
         (keyId + 1),
         (keyId - 1),
-        (keyId + 3),
-        (keyId - 3),
+        (keyId + 2),
+        (keyId - 2),
+        (keyId + 4),
+        (keyId - 4),
       ]);
-    } else {
+    }
+
+    if (lastKey === keyId + 2) {
+      addKeysToNextKeys([
+        (keyId),
+        (lastKey + 1),
+        (lastKey - 1),
+      ]);
+    }
+
+    if (lastKey === keyId - 1) {
+      addKeysToNextKeys([
+        (lastKey + 2),
+        (lastKey - 2),
+      ]);
+    }
+
+    if (lastKey === keyId + 1) {
+      addKeysToNextKeys([
+        (lastKey + 3),
+        (lastKey - 2),
+      ]);
+    }
+
+    if (lastKey === keyId + 4) {
+      addKeysToNextKeys([
+        (lastKey - 1),
+        (lastKey - 2),
+      ]);
+    }
+
+    if (lastKey === keyId + 3) {
+      addKeysToNextKeys([
+        (lastKey - 2),
+        // (lastKey - 2),
+      ]);
+    }
+
+    if (lastKey === keyId - 3) {
       addKeysToNextKeys([
         (keyId),
       ]);

@@ -69,13 +69,23 @@ h1 {
   text-align: center;
   border-radius: 3px;
   background-color: white;
+  border: 1px solid #F9F9F9;
+  cursor: pointer;
+}
+
+.invalid-key {
+  background-color: rgba(0,0,0,.0975);
+  cursor: not-allowed;
+  border: 1px solid black;
 }
 
 .valid-key {
-  background-color: blue;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 10px #38EEFF;
 }
 
-.white-key:hover {
+.valid-key:hover {
   background-color: #F9F9F9;
 }
 
