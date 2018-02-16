@@ -4,91 +4,112 @@
     <meta charset="utf-8">
     <title>Songbird</title>
     <link rel="stylesheet" href="./assets/keyboard-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   </head>
   <body>
-    <canvas id="timelineCanvas" width="800" height="300"></canvas>
-    <div id="playButton">Play</div>
-    <div class="keyboard">
-      <div
-        id="c"
-        class="white-key">
-        C
+    <div class="app-content">
+      <h1>Songbird</h1>
+      <canvas id="timelineCanvas" width="800" height="300"></canvas>
+      <div class="buttons">
+        <div id="playButton" class="button play-button">Play</div>
+        <div id="clear" class="button clear-button">Clear</div>
       </div>
-      <div
-        id="d"
-        class="white-key">
-        D
+      <div class="keyboard">
+        <div
+          id="c"
+          data-index="0"
+          class="white-key">
+          C
+        </div>
+        <div
+          id="d"
+          data-index="1"
+          class="white-key">
+          D
+        </div>
+        <div
+          id="e"
+          data-index="2"
+          class="white-key">
+          E
+        </div>
+        <div
+          id="f"
+          data-index="3"
+          class="white-key">
+          F
+        </div>
+        <div
+          id="g"
+          data-index="4"
+          class="white-key">
+          G
+        </div>
+        <div
+          id="a"
+          data-index="5"
+          class="white-key">
+          A
+        </div>
+        <div
+          id="b"
+          data-index="6"
+          class="white-key">
+          B
+        </div>
+        <div
+          id="c2"
+          data-index="7"
+          class="white-key">
+          C
+        </div>
+        <div
+          id="d2"
+          data-index="8"
+          class="white-key">
+          D
+        </div>
+        <div
+          id="e2"
+          data-index="9"
+          class="white-key">
+          E
+        </div>
+        <div
+          id="f2"
+          data-index="10"
+          class="white-key">
+          F
+        </div>
+        <div
+          id="g2"
+          data-index="11"
+          class="white-key">
+          G
+        </div>
+        <div
+          id="a2"
+          data-index="12"
+          class="white-key">
+          A
+        </div>
+        <div
+          id="b2"
+          data-index="13"
+          class="white-key">
+          B
+        </div>
+        <div
+          id="c3"
+          data-index="14"
+          class="white-key">
+          C
+        </div>
       </div>
-      <div
-        id="e"
-        class="white-key">
-        E
-      </div>
-      <div
-        id="f"
-        class="white-key">
-        F
-      </div>
-      <div
-        id="g"
-        class="white-key">
-        G
-      </div>
-      <div
-        id="a"
-        class="white-key">
-        A
-      </div>
-      <div
-        id="b"
-        class="white-key">
-        B
-      </div>
-      <div
-        id="c2"
-        class="white-key">
-        C
-      </div>
-      <div
-        id="d2"
-        class="white-key">
-        D
-      </div>
-      <div
-        id="e2"
-        class="white-key">
-        E
-      </div>
-      <div
-        id="f2"
-        class="white-key">
-        F
-      </div>
-      <div
-        id="g2"
-        class="white-key">
-        G
-      </div>
-      <div
-        id="a2"
-        class="white-key">
-        A
-      </div>
-      <div
-        id="b2"
-        class="white-key">
-        B
-      </div>
-      <div
-        id="c3"
-        class="white-key">
-        C
-      </div>
-    </div>
-    <div id="clear">Clear Timeline<div/>
 
-    <script type="text/javascript" src="./js/keyboard.js"></script>
-    <script type="text/javascript" src="./js/timeline.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
+      <script type="text/javascript" src="./js/keyboard.js"></script>
+      <script type="text/javascript" src="./js/timeline.js"></script>
+      <script type="text/javascript" src="./js/main.js"></script>
+    </div>
   </body>
 </html>

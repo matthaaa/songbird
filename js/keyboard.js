@@ -1,4 +1,4 @@
-function keyboard(keysByNoteName, selectedKeys) {
+function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("c").onclick = function() {playKey(0)};
   document.getElementById("d").onclick = function() {playKey(1)};
   document.getElementById("e").onclick = function() {playKey(2)};
@@ -17,22 +17,64 @@ function keyboard(keysByNoteName, selectedKeys) {
 
   document.getElementById("clear").onclick = function() {clearKeys()};
 
-  var timelineCanvas = document.getElementById("timelineCanvas");
-  var context = timelineCanvas.getContext("2d")
+  const allKeys = document.querySelectorAll(".white-key");
+
+  function highlightNextKeys(nextKeys) {
+    allKeys.forEach((key) => {
+      console.log("key", key);
+      if (nextKeys.includes(Number(key.dataset.index))) {
+        key.classList.add("valid-key");
+      } else {
+        key.classList = "white-key";
+      }
+    });
+  }
+
+  function addKeysToNextKeys(keys) {
+    keys.forEach(key => {
+      if (key >= 0) {
+        nextKeys.push(key);
+      }
+    });
+
+    highlightNextKeys(nextKeys);
+  }
+
+  function updateNextKeys(keyId=7) {
+    nextKeys = [];
+    if (selectedKeys[selectedKeys.length - 1] === keyId) {
+      addKeysToNextKeys([
+        (keyId),
+        (keyId + 1),
+        (keyId - 1),
+        (keyId + 3),
+        (keyId - 3),
+      ]);
+    } else {
+      addKeysToNextKeys([
+        (keyId),
+      ]);
+    }
+  }
+
+  // allKeys.forEach((key) => (
+  //   key.addEventListener("mouseup", handleKeyPress)
+  // ));
+
+  const timelineCanvas = document.getElementById("timelineCanvas");
+  const context = timelineCanvas.getContext("2d")
 
   function playKey(key) {
-    console.log(key);
     var audio = new Audio(keysByNoteName[key].soundSrc);
     selectedKeys.push(key);
-    console.log(selectedKeys)
     audio.play();
     new timeline(keysByNoteName, selectedKeys)
+    updateNextKeys();
   }
 
   function clearKeys() {
     selectedKeys = [];
     new timeline(keysByNoteName, selectedKeys)
-    console.log(selectedKeys)
     context.clearRect(0, 0, timelineCanvas.width, timelineCanvas.height);
   }
 }
