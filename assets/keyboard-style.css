@@ -15,6 +15,10 @@ image, canvas {
   border-radius: 5px;
 }
 
+canvas {
+  box-shadow: 2px 2px 10px;
+}
+
 body {
   background-image: url("./images/piano_wallpaper.jpg");
   font-family: 'Quicksand', sans-serif;
@@ -59,6 +63,10 @@ h1 {
 .white-key {
   width: 50px;
   /* border: 1px solid black; */
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+
   box-shadow: 2px 2px 10px;
   font-weight: 600;
   margin-right: 10px;
@@ -87,6 +95,7 @@ h1 {
 
 .valid-key:hover {
   background-color: #F9F9F9;
+  top: -10;
 }
 
 .buttons {
