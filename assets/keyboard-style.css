@@ -30,6 +30,12 @@ h1 {
   color: #F9F9F9;
 }
 
+p {
+  font-size: 24px;
+  color: #F9F9F9;
+  margin-bottom: 50px;
+}
+
 .app-content {
   height: 100vh;
   display: flex;
