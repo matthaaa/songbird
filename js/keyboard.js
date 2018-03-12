@@ -16,6 +16,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("c3").onclick = function() {playKey(14)};
 
   document.getElementById("clear").onclick = function() {clearKeys()};
+  document.getElementById("undo").onclick = function() {removeLastKey()};
 
   const allKeys = document.querySelectorAll(".white-key");
 
@@ -130,5 +131,10 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     });
     new timeline(keysByNoteName, selectedKeys)
     context.clearRect(0, 0, timelineCanvas.width, timelineCanvas.height);
+  }
+
+  function removeLastKey(keys) {
+    // selectedKeys.pop
+    // updateNextKeys();
   }
 }
