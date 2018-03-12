@@ -16,7 +16,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("c3").onclick = function() {playKey(14)};
 
   document.getElementById("clear").onclick = function() {clearKeys()};
-  document.getElementById("undo").onclick = function() {removeLastKey()};
 
   const allKeys = document.querySelectorAll(".white-key");
 
@@ -134,7 +133,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   }
 
   function removeLastKey(keys) {
-    // selectedKeys.pop
+    // keys.pop
     // updateNextKeys();
   }
 }
