@@ -43,6 +43,11 @@ p {
   box-shadow: 2px 2px 10px;
 }
 
+.treble-clef {
+  margin-top: 26px;
+  margin-bottom: 100px;
+}
+
 .staff-line {
     display: block;
     height: 1px;
