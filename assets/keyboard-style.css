@@ -70,6 +70,10 @@ p {
 
 }
 
+.undo-button {
+  margin-right: 15px;
+}
+
 .white-key {
   width: 50px;
   /* border: 1px solid black; */
