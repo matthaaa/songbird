@@ -112,8 +112,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   //   key.addEventListener("mouseup", handleKeyPress)
   // ));
 
-  const timelineCanvas = document.getElementById("timelineCanvas");
-  const context = timelineCanvas.getContext("2d")
+  // const timelineCanvas = document.getElementById("timelineCanvas");
+  // const context = timelineCanvas.getContext("2d")
 
   function playKey(key) {
     var audio = new Audio(keysByNoteName[key].soundSrc);
