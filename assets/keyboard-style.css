@@ -40,6 +40,12 @@ p {
   border-radius: 5px;
 }
 
+.timeline {
+  height: 300px;
+  width: 750px;
+  border-radius: 5px;
+}
+
 .app-content {
   height: 100vh;
   display: flex;
