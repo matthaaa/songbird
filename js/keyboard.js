@@ -122,8 +122,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     audio.play();
 
     // Add note to the DOM
-    note = document.createTextNode(keysByNoteName[key].name);
-    document.getElementById("main-timeline").appendChild(note);
+    var p = document.createElement("p");
+    note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
+    document.getElementById("main-timeline").appendChild(p).appendChild(note);
 
     updateNextKeys();
   }
@@ -137,9 +138,19 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   }
 
   function removeLastKey() {
+    if (selectedKeys.length === 0) {
+      return null;
+    }
+
+    timeline = document.getElementById("main-timeline");
+
+    if (selectedKeys.length === 1) {
+      timeline.removeChild(timeline.lastChild);
+      return clearKeys();
+    }
+
     removedKey = selectedKeys.pop()
     note = document.createTextNode(keysByNoteName[removedKey].name);
-    timeline = document.getElementById("main-timeline");
     console.log(timeline.childNodes);
     timeline.removeChild(timeline.lastChild);
 

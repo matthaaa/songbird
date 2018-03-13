@@ -4,6 +4,16 @@
   opacity: 0.8;
 }
 
+.main-timeline {
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+}
+
+.main-timeline p {
+  display: flex;
+}
+
 /* Prevent dragging and selection */
 image, canvas {
   user-select: none;
@@ -27,7 +37,7 @@ h1 {
   color: #F9F9F9;
 }
 
-p {
+.description {
   font-size: 24px;
   color: #F9F9F9;
   margin-bottom: 50px;
