@@ -1,5 +1,8 @@
 function timeline(keysByNoteName, selectedKeys) {
-  document.getElementById("playButton").onclick = function() {playback()};
+  var enablePlayButton = true;
+  document.getElementById("playButton").onclick = function() {
+    enablePlayButton ? playback() : null;
+  };
 
   // function drawCircle(keysArray, key, note) {
   //   context.beginPath();
@@ -30,6 +33,7 @@ function timeline(keysByNoteName, selectedKeys) {
     playedNotes = [];
 
     if (keys.length === 0) return null;
+    enablePlayButton = false;
 
     const timer = setInterval(() => {
 
@@ -47,6 +51,7 @@ function timeline(keysByNoteName, selectedKeys) {
       // drawBlueCircle(playedNotes, key, note);
 
       if (keys.length === 0) {
+        enablePlayButton = true;
         clearInterval(timer, 0);
       }
     }, 300);
