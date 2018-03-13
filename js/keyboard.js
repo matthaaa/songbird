@@ -18,6 +18,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("clear").onclick = function() {clearKeys()};
   document.getElementById("undo").onclick = function() {removeLastKey()};
 
+  timelineNotes = document.getElementById("main-timeline");
+
   const allKeys = document.querySelectorAll(".white-key");
 
   function highlightNextKeys(nextKeys) {
@@ -130,6 +132,10 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   }
 
   function clearKeys() {
+    for (let i = 0; i < selectedKeys.length; i++) {
+      timelineNotes.removeChild(timelineNotes.lastChild);
+    }
+
     selectedKeys = [];
     allKeys.forEach((key) => {
       key.classList = "white-key";
@@ -142,17 +148,12 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       return null;
     }
 
-    timeline = document.getElementById("main-timeline");
-
     if (selectedKeys.length === 1) {
-      timeline.removeChild(timeline.lastChild);
       return clearKeys();
     }
 
     removedKey = selectedKeys.pop()
-    note = document.createTextNode(keysByNoteName[removedKey].name);
-    console.log(timeline.childNodes);
-    timeline.removeChild(timeline.lastChild);
+    timelineNotes.removeChild(timelineNotes.lastChild);
 
     updateNextKeys();
   }

@@ -1,5 +1,6 @@
 function timeline(keysByNoteName, selectedKeys) {
   var enablePlayButton = true;
+
   document.getElementById("playButton").onclick = function() {
     enablePlayButton ? playback() : null;
   };
