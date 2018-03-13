@@ -19,7 +19,10 @@ function timeline(keysByNoteName, selectedKeys) {
 
   selectedKeys.map((key) => {
     const note = keysByNoteName[key]
-    // drawCircle(selectedKeys, key, note);
+
+    // Add note to the DOM
+    // note = document.createTextNode(selectedKeys[key]);
+    // document.getElementById("main-timeline").appendChild(note);
   })
 
   function playback() {

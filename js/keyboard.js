@@ -119,7 +119,11 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     var audio = new Audio(keysByNoteName[key].soundSrc);
     selectedKeys.push(key);
     audio.play();
-    new timeline(keysByNoteName, selectedKeys)
+
+    // Add note to the DOM
+    note = document.createTextNode(keysByNoteName[key].name);
+    document.getElementById("main-timeline").appendChild(note);
+
     updateNextKeys();
   }
 
