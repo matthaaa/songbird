@@ -56,6 +56,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
         (keyId - 2),
         (keyId + 4),
         (keyId - 4),
+        (keyId + 5),
+        (keyId - 5),
       ]);
     }
 
@@ -119,6 +121,10 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   // const context = timelineCanvas.getContext("2d")
 
   function playKey(key) {
+    if (selectedKeys.length === 13) {
+      return null;
+    }
+
     var audio = new Audio(keysByNoteName[key].soundSrc);
     selectedKeys.push(key);
     audio.play();

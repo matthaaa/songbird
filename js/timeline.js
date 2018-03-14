@@ -44,8 +44,6 @@ function timeline(keysByNoteName, selectedKeys) {
       const key = playedNotes[noteIdx];
       const note = keysByNoteName[key];
 
-      // drawCircle(playedNotes,key, note);
-
       const audio = new Audio(note.soundSrc);
       audio.play();
 
