@@ -1,16 +1,15 @@
 .timeline {
   background: #EEEEEE;
   /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
   opacity: 0.8;
 }
 
 .main-timeline {
-  position: absolute;
   font-family: 'Quicksand', sans-serif;
   font-size: 18px;
   display: flex;
-  align-items: center;
-  top: 382px;
 }
 
 .main-timeline p {
