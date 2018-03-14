@@ -1,5 +1,8 @@
 # Songbird
 
+Try it here!
+https://matthaaa.github.io/songbird.com/
+
 ## Background and Overview
 
 Songbird is a music generator that applies basic rules of music theory to guide the user's experience in creating a short melody in the key of C.
