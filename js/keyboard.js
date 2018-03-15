@@ -13,7 +13,10 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
 
     document.getElementById(keyObject.name).onclick = function() {
+      console.log(nextKeys);
       nextKeys.includes(i) ? playKey(i) : null;
+      console.log(nextKeys);
+
     }
   }
 
@@ -26,7 +29,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function highlightNextKeys(nextKeys) {
     allKeys.forEach((key) => {
-      console.log(Number(key.dataset.index));
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
       } else {
@@ -41,14 +43,38 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
         nextKeys.push(key);
       }
     });
-
-    highlightNextKeys(nextKeys);
   }
 
   function updateNextKeys(keyId=7) {
     nextKeys = [];
     lastKey = selectedKeys[selectedKeys.length - 1];
     secondLastKey = selectedKeys[selectedKeys.length - 2];
+
+    // TODO: Change logic to remove from ALL keys instead of adding
+    // individual keys, since there are more keys to add than to remove
+    // in each case.
+
+    if (secondLastKey === keyId && lastKey === keyId + 1) {
+      addKeysToNextKeys([(keyId + 2)])
+    }
+
+    if (secondLastKey === keyId && lastKey === keyId - 1) {
+      addKeysToNextKeys([(keyId - 2)])
+    }
+
+    if (lastKey === keyId - 2) {
+      addKeysToNextKeys([
+        (keyId - 1),
+        (keyId - 3),
+      ])
+    }
+
+    if (lastKey === keyId - 3) {
+      addKeysToNextKeys([
+        (keyId),
+        (keyId - 7),
+      ])
+    }
 
     if (lastKey === keyId) {
       addKeysToNextKeys([
@@ -96,7 +122,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     if (lastKey === keyId + 3) {
       addKeysToNextKeys([
         (lastKey - 2),
-        // (lastKey - 2),
       ]);
     }
 
@@ -114,6 +139,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
         (keyId),
       ]);
     }
+
+    highlightNextKeys(nextKeys);
   }
 
   // allKeys.forEach((key) => (
@@ -132,7 +159,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     selectedKeys.push(key);
     audio.play();
 
-    // Add note to the DOM
+    // Add note to the Timeline
     var p = document.createElement("p");
     note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
     // note.setAttribute("id", "timeline-key");
@@ -168,4 +195,5 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
     updateNextKeys();
   }
+
 }

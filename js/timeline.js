@@ -34,5 +34,7 @@ function timeline(keysByNoteName, selectedKeys) {
         clearInterval(timer, 0);
       }
     }, 300);
+
   }
+
 }
