@@ -1,19 +1,19 @@
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
-  document.getElementById("c3").onclick = function() {playKey(0)};
-  document.getElementById("d3").onclick = function() {playKey(1)};
-  document.getElementById("e3").onclick = function() {playKey(2)};
-  document.getElementById("f3").onclick = function() {playKey(3)};
-  document.getElementById("g3").onclick = function() {playKey(4)};
-  document.getElementById("a4").onclick = function() {playKey(5)};
-  document.getElementById("b4").onclick = function() {playKey(6)};
-  document.getElementById("c4").onclick = function() {playKey(7)};
-  document.getElementById("d4").onclick = function() {playKey(8)};
-  document.getElementById("e4").onclick = function() {playKey(9)};
-  document.getElementById("f4").onclick = function() {playKey(10)};
-  document.getElementById("g4").onclick = function() {playKey(11)};
-  document.getElementById("a5").onclick = function() {playKey(12)};
-  document.getElementById("b5").onclick = function() {playKey(13)};
-  document.getElementById("c5").onclick = function() {playKey(14)};
+  for (let i = 0; i < Object.keys(keysByNoteName).length; i++) {
+
+    // Render the main keyboard.
+    var div = document.createElement("div");
+    keyName = document.createTextNode(keysByNoteName[i].name[0].toUpperCase());
+    document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
+
+    document.getElementById(keysByNoteName[i].name).onclick = function() {
+      console.log(nextKeys);
+      console.log(String(i));
+      if (nextKeys.includes(String(i))) {
+        playKey(i);
+      }
+    }
+  }
 
   document.getElementById("clear").onclick = function() {clearKeys()};
   document.getElementById("undo").onclick = function() {removeLastKey()};
@@ -24,6 +24,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function highlightNextKeys(nextKeys) {
     allKeys.forEach((key) => {
+      console.log(Number(key.dataset.index));
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
       } else {

@@ -5,22 +5,6 @@ function timeline(keysByNoteName, selectedKeys) {
     enablePlayButton ? playback() : null;
   };
 
-  // function drawCircle(keysArray, key, note) {
-  //   context.beginPath();
-  //   context.arc((keysArray.lastIndexOf(key) * 53 + 20), timelineCanvas.height - (17 * key + 20), 5, 0, Math.PI*10);
-  //   context.fillStyle = "#000000";
-  //   context.fill();
-  //   context.closePath();
-  // }
-  //
-  // function drawBlueCircle(keysArray, key, note) {
-  //   context.beginPath();
-  //   context.arc((keysArray.lastIndexOf(key) * 53 + 20), timelineCanvas.height - (17 * key + 20), 6, 0, Math.PI*10);
-  //   context.fillStyle = "#38EEFF";
-  //   context.fill();
-  //   context.closePath();
-  // }
-
   selectedKeys.map((key) => {
     const note = keysByNoteName[key]
 

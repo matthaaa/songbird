@@ -18,7 +18,7 @@ let keysByNoteName = {
 };
 
 let selectedKeys = [];
-let nextKeys = Object.keys(keysByNoteName);
+let nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
 
 new keyboard(keysByNoteName, selectedKeys, nextKeys)
 new timeline(keysByNoteName, selectedKeys);
