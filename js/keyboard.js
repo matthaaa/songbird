@@ -1,12 +1,18 @@
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   for (let i = 0; i < Object.keys(keysByNoteName).length; i++) {
 
+    let keyObject = keysByNoteName[i];
+
     // Render the main keyboard.
     var div = document.createElement("div");
+    div.setAttribute("id", keyObject.name);
+    div.setAttribute("data-index", String(i));
+    div.setAttribute("class", "white-key");
+
     keyName = document.createTextNode(keysByNoteName[i].name[0].toUpperCase());
     document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
 
-    document.getElementById(keysByNoteName[i].name).onclick = function() {
+    document.getElementById(keyObject.name).onclick = function() {
       console.log(nextKeys);
       console.log(String(i));
       if (nextKeys.includes(String(i))) {
