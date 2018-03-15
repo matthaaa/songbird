@@ -9,28 +9,34 @@ function timeline(keysByNoteName, selectedKeys) {
     const note = keysByNoteName[key];
   })
 
+  function removeHighlightColor(keys) {
+    keys.map((key) => {
+      document.getElementById(keysByNoteName[key].name).style.backgroundColor = "white";
+    });
+    clearInterval();
+  }
+
   function playback() {
     keys = Array.from(selectedKeys);
-    playedNotes = [];
 
     if (keys.length === 0) return null;
     enablePlayButton = false;
 
     const timer = setInterval(() => {
 
-      // document.getElementById(keyObject.name).style.backgroundColor = "blue";
+      currentKey = keys.shift();
+      const note = keysByNoteName[currentKey];
 
-      playedNotes.push(keys.shift());
-      noteIdx = playedNotes.length - 1;
+      removeHighlightColor(selectedKeys);
 
-      const key = playedNotes[noteIdx];
-      const note = keysByNoteName[key];
+      document.getElementById(note.name).style.backgroundColor = "#38EEFF";
 
       const audio = new Audio(note.soundSrc);
       audio.play();
 
       if (keys.length === 0) {
         enablePlayButton = true;
+        setTimeout(() => {removeHighlightColor(selectedKeys)}, 300);
         clearInterval(timer, 0);
       }
     }, 300);
