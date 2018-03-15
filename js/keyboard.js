@@ -151,7 +151,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     allKeys.forEach((key) => {
       key.classList = "white-key";
     });
-    // new timeline(keysByNoteName, selectedKeys)
+    new timeline(keysByNoteName, selectedKeys)
   }
 
   function removeLastKey() {
