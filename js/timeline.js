@@ -11,9 +11,8 @@ function timeline(keysByNoteName, selectedKeys) {
 
   function removeHighlightColor(keys) {
     keys.map((key) => {
-      document.getElementById(keysByNoteName[key].name).style.backgroundColor = "white";
+      document.getElementById(keysByNoteName[key].name).style.backgroundColor = null;
     });
-    clearInterval();
   }
 
   function playback() {

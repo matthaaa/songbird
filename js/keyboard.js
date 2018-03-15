@@ -182,7 +182,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
     // Add note to the Timeline
     var p = document.createElement("p");
-    p.id = `${key}`;
+    p.id = `timeline-key ${keysByNoteName[key].name}`;
     note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
 
     document.getElementById("main-timeline").appendChild(p).appendChild(note);
