@@ -14,8 +14,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
     document.getElementById(keyObject.name).onclick = function() {
       console.log(nextKeys);
-      console.log(String(i));
-      if (nextKeys.includes(String(i))) {
+      console.log(i);
+      if (nextKeys.includes(i)) {
         playKey(i);
       }
     }
