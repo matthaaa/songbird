@@ -13,10 +13,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
 
     document.getElementById(keyObject.name).onclick = function() {
-      console.log(nextKeys);
       nextKeys.includes(i) ? playKey(i) : null;
-      console.log(nextKeys);
-
     }
   }
 
@@ -54,6 +51,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     // individual keys, since there are more keys to add than to remove
     // in each case.
 
+    addKeysToNextKeys([(keyId)]);
+
     if (secondLastKey === keyId && lastKey === keyId + 1) {
       addKeysToNextKeys([(keyId + 2)])
     }
@@ -72,6 +71,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     if (lastKey === keyId - 3) {
       addKeysToNextKeys([
         (keyId),
+        (keyId + 1),
         (keyId - 7),
       ])
     }
@@ -93,35 +93,56 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     if (lastKey === keyId + 2) {
       addKeysToNextKeys([
         (keyId),
-        (lastKey + 1),
-        (lastKey - 1),
+        (keyId + 1),
+        (keyId - 1),
       ]);
     }
 
     if (lastKey === keyId - 1) {
       addKeysToNextKeys([
-        (lastKey + 2),
-        (lastKey - 2),
+        (keyId + 2),
+        (keyId - 2),
       ]);
     }
 
     if (lastKey === keyId + 1) {
       addKeysToNextKeys([
-        (lastKey + 3),
-        (lastKey - 2),
+        (keyId + 3),
+        (keyId - 2),
       ]);
     }
 
     if (lastKey === keyId + 4) {
       addKeysToNextKeys([
-        (lastKey - 1),
-        (lastKey - 2),
+        (keyId - 1),
+        (keyId - 2),
       ]);
     }
 
     if (lastKey === keyId + 3) {
       addKeysToNextKeys([
-        (lastKey - 2),
+        (keyId - 2),
+        (keyId + 5),
+      ]);
+    }
+
+    if (lastKey === keyId + 5) {
+      if (secondLastKey === keyId + 3) {
+        addKeysToNextKeys([
+          (keyId + 4),
+        ]);
+      } else {
+        addKeysToNextKeys([
+          (keyId + 3),
+          (keyId + 4),
+        ]);
+      }
+    }
+
+    if (lastKey === keyId + 4) {
+      addKeysToNextKeys([
+        (keyId + 5),
+        (keyId + 2),
       ]);
     }
 
@@ -175,6 +196,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     }
 
     selectedKeys = [];
+    nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
     allKeys.forEach((key) => {
       key.classList = "white-key";
     });
