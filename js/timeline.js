@@ -6,11 +6,7 @@ function timeline(keysByNoteName, selectedKeys) {
   };
 
   selectedKeys.map((key) => {
-    const note = keysByNoteName[key]
-
-    // Add note to the DOM
-    // note = document.createTextNode(selectedKeys[key]);
-    // document.getElementById("main-timeline").appendChild(note);
+    const note = keysByNoteName[key];
   })
 
   function playback() {
@@ -22,6 +18,8 @@ function timeline(keysByNoteName, selectedKeys) {
 
     const timer = setInterval(() => {
 
+      // document.getElementById(keyObject.name).style.backgroundColor = "blue";
+
       playedNotes.push(keys.shift());
       noteIdx = playedNotes.length - 1;
 
@@ -30,8 +28,6 @@ function timeline(keysByNoteName, selectedKeys) {
 
       const audio = new Audio(note.soundSrc);
       audio.play();
-
-      // drawBlueCircle(playedNotes, key, note);
 
       if (keys.length === 0) {
         enablePlayButton = true;

@@ -135,6 +135,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     // Add note to the DOM
     var p = document.createElement("p");
     note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
+    // note.setAttribute("id", "timeline-key");
+
     document.getElementById("main-timeline").appendChild(p).appendChild(note);
 
     updateNextKeys();
@@ -149,7 +151,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     allKeys.forEach((key) => {
       key.classList = "white-key";
     });
-    new timeline(keysByNoteName, selectedKeys)
+    // new timeline(keysByNoteName, selectedKeys)
   }
 
   function removeLastKey() {
