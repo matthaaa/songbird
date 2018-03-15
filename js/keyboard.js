@@ -13,11 +13,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
 
     document.getElementById(keyObject.name).onclick = function() {
-      console.log(nextKeys);
-      console.log(i);
-      if (nextKeys.includes(i)) {
-        playKey(i);
-      }
+      nextKeys.includes(i) ? playKey(i) : null;
     }
   }
 
