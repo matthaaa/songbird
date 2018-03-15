@@ -13,6 +13,12 @@ function timeline(keysByNoteName, selectedKeys) {
     keys.map((key) => {
       document.getElementById(keysByNoteName[key].name).style.backgroundColor = null;
     });
+
+    for (let i = 0; i < selectedKeys.length; i++) {
+      console.log(i);
+      console.log(`timeline-key ${i}`);
+      document.getElementById(`timeline-key ${i}`).style.backgroundColor = null;
+    }
   }
 
   function playback() {
@@ -20,6 +26,7 @@ function timeline(keysByNoteName, selectedKeys) {
 
     if (keys.length === 0) return null;
     enablePlayButton = false;
+    let timelineKeyIndex = 0;
 
     const timer = setInterval(() => {
 
@@ -29,6 +36,9 @@ function timeline(keysByNoteName, selectedKeys) {
       removeHighlightColor(selectedKeys);
 
       document.getElementById(note.name).style.backgroundColor = "#38EEFF";
+      document.getElementById(`timeline-key ${timelineKeyIndex}`).style.backgroundColor = "#38EEFF";
+
+      timelineKeyIndex++
 
       const audio = new Audio(note.soundSrc);
       audio.play();
