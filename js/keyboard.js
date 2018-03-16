@@ -20,16 +20,11 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("clear").onclick = function() {clearKeys()};
   document.getElementById("undo").onclick = function() {removeLastKey()};
 
-  keys = Array.from(selectedKeys);
-  if (keys.length === 0) {
-    document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
-    document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
-    document.getElementById("clear").style.backgroundColor = "rgba(0,0,0,.0975)";
-  }
-
   timelineNotes = document.getElementById("main-timeline");
 
   const allKeys = document.querySelectorAll(".white-key");
+
+  updateActionButtons(selectedKeys);
 
   function highlightNextKeys(nextKeys) {
     allKeys.forEach((key) => {
@@ -47,6 +42,18 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
         nextKeys.push(key);
       }
     });
+  }
+
+  function updateActionButtons(keys) {
+    if (keys.length === 0) {
+      document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
+      document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
+      document.getElementById("clear").style.backgroundColor = "rgba(0,0,0,.0975)";
+    } else {
+      document.getElementById("undo").style.backgroundColor = null;
+      document.getElementById("playButton").style.backgroundColor = null;
+      document.getElementById("clear").style.backgroundColor = null;
+    }
   }
 
   function updateNextKeys(keyId=7) {
@@ -195,6 +202,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     document.getElementById("main-timeline").appendChild(p).appendChild(note);
 
     updateNextKeys();
+    updateActionButtons(selectedKeys);
   }
 
   function clearKeys() {
@@ -208,6 +216,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       key.classList = "white-key";
     });
     new timeline(keysByNoteName, selectedKeys)
+    updateActionButtons(selectedKeys);
   }
 
   function removeLastKey() {
@@ -223,6 +232,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     timelineNotes.removeChild(timelineNotes.lastChild);
 
     updateNextKeys();
+    updateActionButtons(selectedKeys);
   }
 
 }
