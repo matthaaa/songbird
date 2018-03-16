@@ -20,6 +20,13 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   document.getElementById("clear").onclick = function() {clearKeys()};
   document.getElementById("undo").onclick = function() {removeLastKey()};
 
+  keys = Array.from(selectedKeys);
+  if (keys.length === 0) {
+    document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
+    document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
+    document.getElementById("clear").style.backgroundColor = "rgba(0,0,0,.0975)";
+  }
+
   timelineNotes = document.getElementById("main-timeline");
 
   const allKeys = document.querySelectorAll(".white-key");
