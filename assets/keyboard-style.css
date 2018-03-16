@@ -91,6 +91,10 @@ h1 {
   border-radius: 5px;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .play-button {
   margin-right: 15px;
   font-weight: 600;
