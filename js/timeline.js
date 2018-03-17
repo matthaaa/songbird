@@ -9,6 +9,15 @@ function timeline(keysByNoteName, selectedKeys) {
     const note = keysByNoteName[key];
   })
 
+  if (selectedKeys.length === 0) {
+    intro = document.createElement("p");
+    intro.setAttribute("class", "description");
+    description = document.createTextNode(
+      "Press any key on the keyboard below to get started!"
+    );
+    document.getElementById("main-timeline").appendChild(intro).appendChild(description);
+  }
+
   function removeHighlightColor(keys) {
     keys.map((key) => {
       document.getElementById(keysByNoteName[key].name).style.backgroundColor = null;
