@@ -24,6 +24,22 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   const allKeys = document.querySelectorAll(".white-key");
 
+  function renderIntroMessage() {
+    intro = document.createElement("p");
+    intro.setAttribute("class", "description");
+    description = document.createTextNode(
+      "Press any key on the keyboard below to get started!"
+    );
+    intro.appendChild(description);
+
+    if (selectedKeys.length === 0) {
+      document.getElementById("main-timeline").appendChild(intro);
+    } else {
+      document.getElementById("main-timeline").removeChild(intro);
+    }
+  }
+
+  renderIntroMessage();
 
   function highlightNextKeys(nextKeys) {
     allKeys.forEach((key) => {
