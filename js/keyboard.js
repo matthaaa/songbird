@@ -7,7 +7,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     var div = document.createElement("div");
     div.setAttribute("id", keyObject.name);
     div.setAttribute("data-index", String(i));
-    div.setAttribute("class", "white-key");
+    div.setAttribute("class", "white-key initial-valid-key");
 
     keyName = document.createTextNode(keysByNoteName[i].name[0].toUpperCase());
     document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
@@ -239,7 +239,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     selectedKeys = [];
     nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
     allKeys.forEach((key) => {
-      key.classList = "white-key";
+      key.classList = "white-key initial-valid-key";
     });
     new timeline(keysByNoteName, selectedKeys)
     renderIntroMessage();

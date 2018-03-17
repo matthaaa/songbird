@@ -120,6 +120,10 @@ h1 {
   border: 1px solid black;
 }
 
+.initial-valid-key:hover {
+  background-color: #F9F9F9;
+}
+
 .valid-key {
   background-color: white;
   border: 1px solid gray;
