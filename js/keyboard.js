@@ -32,9 +32,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     );
     intro.appendChild(description);
 
-    console.log(intro);
-    console.log(document.getElementById("main-timeline"));
-
     if (selectedKeys.length === 0) {
       document.getElementById("main-timeline").appendChild(intro);
     } else {
