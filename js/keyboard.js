@@ -26,16 +26,21 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   function renderIntroMessage() {
     intro = document.createElement("p");
-    intro.setAttribute("class", "description");
+    intro.setAttribute("id", "description");
     description = document.createTextNode(
       "Press any key on the keyboard below to get started!"
     );
     intro.appendChild(description);
 
+    console.log(intro);
+    console.log(document.getElementById("main-timeline"));
+
     if (selectedKeys.length === 0) {
       document.getElementById("main-timeline").appendChild(intro);
     } else {
-      document.getElementById("main-timeline").removeChild(intro);
+      document.getElementById("main-timeline").removeChild(
+        document.getElementById("description")
+      );
     }
   }
 
@@ -225,6 +230,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     document.getElementById("main-timeline").appendChild(p).appendChild(note);
 
     updateNextKeys();
+    renderIntroMessage();
     updateActionButtons(selectedKeys);
   }
 
@@ -239,6 +245,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       key.classList = "white-key";
     });
     new timeline(keysByNoteName, selectedKeys)
+    renderIntroMessage();
     updateActionButtons(selectedKeys);
   }
 
@@ -255,6 +262,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     timelineNotes.removeChild(timelineNotes.lastChild);
 
     updateNextKeys();
+    renderIntroMessage();
     updateActionButtons(selectedKeys);
   }
 
