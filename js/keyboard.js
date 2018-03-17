@@ -34,7 +34,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
     if (selectedKeys.length === 0) {
       document.getElementById("main-timeline").appendChild(intro);
-    } else {
+    } else if (document.getElementById("description")) {
       document.getElementById("main-timeline").removeChild(
         document.getElementById("description")
       );
