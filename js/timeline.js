@@ -15,8 +15,6 @@ function timeline(keysByNoteName, selectedKeys) {
     });
 
     for (let i = 0; i < selectedKeys.length; i++) {
-      console.log(i);
-      console.log(`timeline-key ${i}`);
       document.getElementById(`timeline-key ${i}`).style.backgroundColor = null;
     }
   }
