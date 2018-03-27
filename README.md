@@ -20,7 +20,7 @@ As keys are selected, the timeline is populated with the corresponding notes. Wh
 
 ![#](https://s3.amazonaws.com/songbird-screenshots/Screenshot+2018-03-17+18.12.09.png)
 
-Notes on the timeline are highlighted during playback with their corresponding keys.
+Notes on the timeline are highlighted in color during playback, along with their corresponding keys.
 
 ![#](https://s3.amazonaws.com/songbird-screenshots/Screenshot+2018-03-17+18.12.36.png)
 
