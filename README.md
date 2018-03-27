@@ -18,6 +18,10 @@ The timeline is composed of a simple div, that is populated with boxes represent
 
 ![#](https://s3.amazonaws.com/songbird-screenshots/Screenshot+2018-03-17+18.12.09.png)
 
+Notes on the timeline are highlighted during playback with their corresponding keys.
+
+![#](https://s3.amazonaws.com/songbird-screenshots/Screenshot+2018-03-17+18.12.36.png)
+
 ## Future Ideas
 
 ### More Complete Algorithm
