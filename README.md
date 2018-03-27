@@ -16,6 +16,8 @@ The keyboard displays simple note objects as boxes, that each play a unique soun
 
 The timeline is composed of a simple div, that is populated with boxes representing the User's selected notes from the keyboard. As notes are added, the user can play back the current song, undo notes one at a time, and clear the entire timeline.
 
+As keys are selected, the timeline is populated, and the next appropriate keys according to the algorithm are highlighted.
+
 ![#](https://s3.amazonaws.com/songbird-screenshots/Screenshot+2018-03-17+18.12.09.png)
 
 Notes on the timeline are highlighted during playback with their corresponding keys.
