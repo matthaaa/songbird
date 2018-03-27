@@ -2,7 +2,7 @@
 
 Try it [here](https://matthaaa.github.io/songbird.com/)!
 
-Songbird is a music generator that applies basic rules of music theory to guide the user's experience in creating a short melody in the key of C. This clone is built using vanilla JavaScript and HTML5, and styled with CSS3.
+Songbird is a music generator that applies basic rules of music theory to guide the user's experience in creating a short melody in the key of C. This application is built using vanilla JavaScript and HTML5, and styled with CSS3.
 
 ## Main Features
 
