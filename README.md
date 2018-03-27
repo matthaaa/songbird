@@ -10,7 +10,7 @@ Songbird is a music generator that applies basic rules of music theory to guide 
 
 The keyboard displays simple note objects as boxes, that each play a unique sound file corresponding to its pitch when pressed. Pressed notes are then added to the timeline object.
 
-![](assets/images/screenshots/basic.png?raw=true "Title")
+![#](assets/images/screenshots/basic.png)
 
 ### Timeline
 
