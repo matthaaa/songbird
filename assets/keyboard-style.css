@@ -93,6 +93,10 @@ h1 {
   margin-right: 15px;
 }
 
+.loop-button {
+  margin-left: 15px;
+}
+
 .white-key {
   width: 50px;
   /* border: 1px solid black; */
