@@ -1,8 +1,17 @@
 function timeline(keysByNoteName, selectedKeys) {
   var enablePlayBack = true;
+  var currentlyPlaying = false;
+  var playbackInterval = 300;
 
   document.getElementById("loop").onclick = function() {
-    enablePlayBack ? playLoop() : null;
+    console.log("loop");
+    if (currentlyPlaying) {
+      stopPlayback();
+    } else if (enablePlayBack) {
+      playLoop();
+    } else {
+      return null;
+    }
   };
 
   document.getElementById("playButton").onclick = function() {
@@ -50,12 +59,20 @@ function timeline(keysByNoteName, selectedKeys) {
         setTimeout(() => {removeHighlightColor(selectedKeys)}, 300);
         clearInterval(timer, 0);
       }
-    }, 300);
+    }, playbackInterval);
 
   }
 
   function playLoop() {
+    // currentlyPlaying = true;
+    // const loopInterval = playbackInterval * selectedKeys.length;
+    // const timer = setInterval(() => {
+    //   playback();
+    // }, loopInterval);
+  }
 
+  function stopPlayback() {
+    console.log("stop");
   }
 
 }
