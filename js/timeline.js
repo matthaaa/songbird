@@ -2,7 +2,7 @@ function timeline(keysByNoteName, selectedKeys) {
   var enablePlayBack = true;
 
   document.getElementById("loop").onclick = function() {
-    enablePlayBack ? playback() : null;
+    enablePlayBack ? playLoop() : null;
   };
 
   document.getElementById("playButton").onclick = function() {
@@ -51,6 +51,10 @@ function timeline(keysByNoteName, selectedKeys) {
         clearInterval(timer, 0);
       }
     }, 300);
+
+  }
+
+  function playLoop() {
 
   }
 
