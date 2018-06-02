@@ -1,8 +1,12 @@
 function timeline(keysByNoteName, selectedKeys) {
-  var enablePlayButton = true;
+  var enablePlayBack = true;
+
+  document.getElementById("loop").onclick = function() {
+    enablePlayBack ? playback() : null;
+  };
 
   document.getElementById("playButton").onclick = function() {
-    enablePlayButton ? playback() : null;
+    enablePlayBack ? playback() : null;
   };
 
   selectedKeys.map((key) => {
@@ -23,7 +27,7 @@ function timeline(keysByNoteName, selectedKeys) {
     keys = Array.from(selectedKeys);
 
     if (keys.length === 0) return null;
-    enablePlayButton = false;
+    enablePlayBack = false;
     let timelineKeyIndex = 0;
 
     const timer = setInterval(() => {
@@ -42,7 +46,7 @@ function timeline(keysByNoteName, selectedKeys) {
       audio.play();
 
       if (keys.length === 0) {
-        enablePlayButton = true;
+        enablePlayBack = true;
         setTimeout(() => {removeHighlightColor(selectedKeys)}, 300);
         clearInterval(timer, 0);
       }
