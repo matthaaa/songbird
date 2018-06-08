@@ -5,6 +5,8 @@ function timeline(keysByNoteName, selectedKeys) {
 
   document.getElementById("loop").onclick = function() {
     console.log("loop");
+    console.log("enablePlayBack", enablePlayBack);
+    console.log("currentlyPlaying", currentlyPlaying);
     if (currentlyPlaying) {
       stopPlayback();
     } else if (enablePlayBack) {
@@ -64,11 +66,12 @@ function timeline(keysByNoteName, selectedKeys) {
   }
 
   function playLoop() {
-    // currentlyPlaying = true;
-    // const loopInterval = playbackInterval * selectedKeys.length;
-    // const timer = setInterval(() => {
-    //   playback();
-    // }, loopInterval);
+    console.log("loop!");
+    currentlyPlaying = true;
+    const loopInterval = playbackInterval * selectedKeys.length;
+    const timer = setInterval(() => {
+      playback();
+    }, loopInterval);
   }
 
   function stopPlayback() {
