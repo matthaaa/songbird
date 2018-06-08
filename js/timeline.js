@@ -2,17 +2,17 @@ function timeline(keysByNoteName, selectedKeys) {
   var enablePlayBack = true;
   var currentlyPlaying = false;
   var playbackInterval = 300;
-
-  document.getElementById("loop").onclick = function() {
-    console.log("loop");
-    if (currentlyPlaying) {
-      stopPlayback();
-    } else if (enablePlayBack) {
-      playLoop();
-    } else {
-      return null;
-    }
-  };
+  //
+  // document.getElementById("loop").onclick = function() {
+  //   console.log("loop");
+  //   if (currentlyPlaying) {
+  //     stopPlayback();
+  //   } else if (enablePlayBack) {
+  //     playLoop();
+  //   } else {
+  //     return null;
+  //   }
+  // };
 
   document.getElementById("playButton").onclick = function() {
     enablePlayBack ? playback() : null;
