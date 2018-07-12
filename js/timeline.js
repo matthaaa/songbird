@@ -10,7 +10,7 @@ function timeline(keysByNoteName, selectedKeys) {
     if (currentlyPlaying) {
       stopPlayback();
     } else if (enablePlayBack) {
-      playLoop();
+      playLoop(playback());
     } else {
       return null;
     }
@@ -65,12 +65,14 @@ function timeline(keysByNoteName, selectedKeys) {
 
   }
 
-  function playLoop() {
+  function playLoop(playFunction) {
+    console.log(playFunction);
     console.log("loop!");
-    currentlyPlaying = true;
+    currentlyPlaying = false;
     const loopInterval = playbackInterval * selectedKeys.length;
-    const timer = setInterval(() => {
-      playback();
+    console.log(loopInterval);
+    const timer = setInterval((playFunction) => {
+      playFunction();
     }, loopInterval);
   }
 
