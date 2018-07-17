@@ -24,7 +24,8 @@ function timeline(keysByNoteName, selectedKeys) {
 
   function removeHighlightColor(keys) {
     keys.map((key) => {
-      document.getElementById(keysByNoteName[key].name).style.backgroundColor = null;
+      var keyName = keysByNoteName[key].name;
+      document.getElementById(keyName).style.backgroundColor = null;
     });
 
     for (let i = 0; i < selectedKeys.length; i++) {
