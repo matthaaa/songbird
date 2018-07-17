@@ -86,10 +86,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     lastKey = selectedKeys[selectedKeys.length - 1];
     secondLastKey = selectedKeys[selectedKeys.length - 2];
 
-    // TODO: Change logic to remove from ALL keys instead of adding
-    // individual keys, since there are more keys to add than to remove
-    // in each case.
-
     addKeysToNextKeys([(keyId)]);
 
     if (secondLastKey === keyId && lastKey === keyId + 1) {
@@ -263,15 +259,4 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
-  function loopKeys() {
-    if (selectedKeys.length === 0) {
-      return null;
-    }
-
-    let playing = true;
-
-    while (playing) {
-      playback();
-    }
-  }
 }
