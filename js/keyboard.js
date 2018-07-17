@@ -263,15 +263,4 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
-  function loopKeys() {
-    if (selectedKeys.length === 0) {
-      return null;
-    }
-
-    let playing = true;
-
-    while (playing) {
-      playback();
-    }
-  }
 }
