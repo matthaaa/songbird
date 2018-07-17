@@ -56,7 +56,7 @@ function timeline(keysByNoteName, selectedKeys) {
 
       if (keys.length === 0) {
         enablePlayBack = true;
-        setTimeout(() => {removeHighlightColor(selectedKeys)}, 300);
+        setTimeout(() => {removeHighlightColor(selectedKeys)}, playbackInterval);
         clearInterval(timer, 0);
       }
     }, playbackInterval);
