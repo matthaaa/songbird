@@ -4,7 +4,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     let keyObject = keysByNoteName[i];
 
     // Render the main keyboard.
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.setAttribute("id", keyObject.name);
     div.setAttribute("data-index", String(i));
     div.setAttribute("class", "white-key initial-valid-key");
@@ -211,12 +211,12 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       return null;
     }
 
-    var audio = new Audio(keysByNoteName[key].soundSrc);
+    let audio = new Audio(keysByNoteName[key].soundSrc);
     selectedKeys.push(key);
     audio.play();
 
     // Add note to the Timeline
-    var p = document.createElement("p");
+    let p = document.createElement("p");
     p.id = `timeline-key ${selectedKeys.lastIndexOf(key)}`;
     note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
 

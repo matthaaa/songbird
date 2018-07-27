@@ -1,7 +1,7 @@
 function timeline(keysByNoteName, selectedKeys) {
-  var enablePlayBack = true;
-  var currentlyPlaying = false;
-  var playbackInterval = 300;
+  let enablePlayBack = true;
+  let currentlyPlaying = false;
+  let playbackInterval = 300;
   //
   // document.getElementById("loop").onclick = function() {
   //   console.log("loop");
@@ -24,7 +24,7 @@ function timeline(keysByNoteName, selectedKeys) {
 
   function removeHighlightColor(keys) {
     keys.map((key) => {
-      var keyName = keysByNoteName[key].name;
+      let keyName = keysByNoteName[key].name;
       document.getElementById(keyName).style.backgroundColor = null;
     });
 
