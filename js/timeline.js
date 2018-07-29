@@ -22,7 +22,7 @@ function timeline(keysByNoteName, selectedKeys) {
     const note = keysByNoteName[key];
   })
 
-  function removeHighlightColor(keys) {
+  const removeHighlightColor = (keys) => {
     keys.map((key) => {
       let keyName = keysByNoteName[key].name;
       document.getElementById(keyName).style.backgroundColor = null;
@@ -33,7 +33,7 @@ function timeline(keysByNoteName, selectedKeys) {
     }
   }
 
-  function playback() {
+  const playback = () => {
     keys = Array.from(selectedKeys);
 
     if (keys.length === 0) return null;
@@ -64,7 +64,7 @@ function timeline(keysByNoteName, selectedKeys) {
 
   }
 
-  function playLoop() {
+  const playLoop = () => {
     // currentlyPlaying = true;
     // const loopInterval = playbackInterval * selectedKeys.length;
     // const timer = setInterval(() => {
@@ -72,7 +72,7 @@ function timeline(keysByNoteName, selectedKeys) {
     // }, loopInterval);
   }
 
-  function stopPlayback() {
+  const stopPlayback = () => {
     console.log("stop");
   }
 
