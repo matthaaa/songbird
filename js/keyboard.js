@@ -24,7 +24,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   const allKeys = document.querySelectorAll(".white-key");
 
-  function renderIntroMessage() {
+  const renderIntroMessage = () => {
     intro = document.createElement("p");
     intro.setAttribute("id", "description");
     description = document.createTextNode(
@@ -43,7 +43,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   renderIntroMessage();
 
-  function highlightNextKeys(nextKeys) {
+  const highlightNextKeys = (nextKeys) => {
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
@@ -53,7 +53,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     });
   }
 
-  function addKeysToNextKeys(keys) {
+  const addKeysToNextKeys = (keys) => {
     keys.forEach(key => {
       if (key >= 0) {
         nextKeys.push(key);
@@ -61,7 +61,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     });
   }
 
-  function updateActionButtons(keys) {
+  const updateActionButtons = (keys) => {
     if (keys.length === 0) {
       document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
       document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
@@ -81,7 +81,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   updateActionButtons(selectedKeys);
 
-  function updateNextKeys(keyId=7) {
+  const updateNextKeys = (keyId=7) => {
     nextKeys = [];
     lastKey = selectedKeys[selectedKeys.length - 1];
     secondLastKey = selectedKeys[selectedKeys.length - 2];
@@ -206,7 +206,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   // const timelineCanvas = document.getElementById("timelineCanvas");
   // const context = timelineCanvas.getContext("2d")
 
-  function playKey(key) {
+  const playKey = (key) => {
     if (selectedKeys.length === 13) {
       return null;
     }
@@ -227,7 +227,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
-  function clearKeys() {
+  const clearKeys = () => {
     for (let i = 0; i < selectedKeys.length; i++) {
       timelineNotes.removeChild(timelineNotes.lastChild);
     }
@@ -242,7 +242,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
-  function removeLastKey() {
+  const removeLastKey = () => {
     if (selectedKeys.length === 0) {
       return null;
     }
