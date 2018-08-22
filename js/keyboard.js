@@ -42,26 +42,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     });
   }
 
-  const updateActionButtons = (keys) => {
-    if (keys.length === 0) {
-      document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
-      document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
-      document.getElementById("clear").style.backgroundColor = "rgba(0,0,0,.0975)";
-      document.getElementById("undo").style.cursor = "not-allowed";
-      document.getElementById("playButton").style.cursor = "not-allowed";
-      document.getElementById("clear").style.cursor = "not-allowed";
-    } else {
-      document.getElementById("undo").style.backgroundColor = null;
-      document.getElementById("playButton").style.backgroundColor = null;
-      document.getElementById("clear").style.backgroundColor = null;
-      document.getElementById("undo").style.cursor = "pointer";
-      document.getElementById("playButton").style.cursor = "pointer";
-      document.getElementById("clear").style.cursor = "pointer";
-    }
-  }
-
-  updateActionButtons(selectedKeys);
-
   const updateNextKeys = (keyId=7) => {
     nextKeys = [];
     lastKey = selectedKeys[selectedKeys.length - 1];
