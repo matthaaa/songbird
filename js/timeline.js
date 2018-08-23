@@ -1,7 +1,15 @@
-function timeline(keysByNoteName, selectedKeys) {
-  let enablePlayBack = true;
-  let currentlyPlaying = false;
-  let playbackInterval = 300;
+// Variables
+let enablePlayBack = true;
+let currentlyPlaying = false;
+let playbackInterval = 300;
+
+function timeline(
+  keysByNoteName,
+  selectedKeys,
+  enablePlayBack,
+  currentlyPlaying,
+  playbackInterval,
+) {
   //
   // document.getElementById("loop").onclick = function() {
   //   console.log("loop");
