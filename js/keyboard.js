@@ -24,6 +24,25 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   const allKeys = document.querySelectorAll(".white-key");
 
+  const renderIntroMessage = () => {
+    intro = document.createElement("p");
+    intro.setAttribute("id", "description");
+    description = document.createTextNode(
+      "Press any key on the keyboard below to get started!"
+    );
+    intro.appendChild(description);
+
+    if (selectedKeys.length === 0) {
+      document.getElementById("main-timeline").appendChild(intro);
+    } else if (document.getElementById("description")) {
+      document.getElementById("main-timeline").removeChild(
+        document.getElementById("description")
+      );
+    }
+  }
+
+  renderIntroMessage();
+
   const highlightNextKeys = (nextKeys) => {
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {
@@ -41,6 +60,26 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       }
     });
   }
+
+  const updateActionButtons = (keys) => {
+    if (keys.length === 0) {
+      document.getElementById("undo").style.backgroundColor = "rgba(0,0,0,.0975)";
+      document.getElementById("playButton").style.backgroundColor = "rgba(0,0,0,.0975)";
+      document.getElementById("clear").style.backgroundColor = "rgba(0,0,0,.0975)";
+      document.getElementById("undo").style.cursor = "not-allowed";
+      document.getElementById("playButton").style.cursor = "not-allowed";
+      document.getElementById("clear").style.cursor = "not-allowed";
+    } else {
+      document.getElementById("undo").style.backgroundColor = null;
+      document.getElementById("playButton").style.backgroundColor = null;
+      document.getElementById("clear").style.backgroundColor = null;
+      document.getElementById("undo").style.cursor = "pointer";
+      document.getElementById("playButton").style.cursor = "pointer";
+      document.getElementById("clear").style.cursor = "pointer";
+    }
+  }
+
+  updateActionButtons(selectedKeys);
 
   const updateNextKeys = (keyId=7) => {
     nextKeys = [];
