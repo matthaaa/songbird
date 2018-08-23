@@ -1,3 +1,8 @@
+// **************************************************
+// TODO: Separate and categorize variables and methods
+//       to follow best practices and clean up code.
+// **************************************************
+
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   for (let i = 0; i < Object.keys(keysByNoteName).length; i++) {
 

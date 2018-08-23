@@ -1,3 +1,7 @@
+// **************************************************
+// TODO: Initialize using JavaScript best practices
+// **************************************************
+
 // Frequencies of two octaves in the key of C.
 let keysByNoteName = {
   0: {name: 'c3', soundSrc: 'http://res.cloudinary.com/instagraph/video/upload/v1518809534/c1.wav'},

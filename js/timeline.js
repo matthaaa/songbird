@@ -1,15 +1,12 @@
-// Variables
-let enablePlayBack = true;
-let currentlyPlaying = false;
-let playbackInterval = 300;
+// **************************************************
+// TODO: Separate and categorize variables and methods
+//       to follow best practices and clean up code.
+// **************************************************
 
-function timeline(
-  keysByNoteName,
-  selectedKeys,
-  enablePlayBack,
-  currentlyPlaying,
-  playbackInterval,
-) {
+function timeline(keysByNoteName, selectedKeys) {
+  let enablePlayBack = true;
+  let currentlyPlaying = false;
+  let playbackInterval = 300;
   //
   // document.getElementById("loop").onclick = function() {
   //   console.log("loop");
