@@ -24,25 +24,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   const allKeys = document.querySelectorAll(".white-key");
 
-  const renderIntroMessage = () => {
-    intro = document.createElement("p");
-    intro.setAttribute("id", "description");
-    description = document.createTextNode(
-      "Press any key on the keyboard below to get started!"
-    );
-    intro.appendChild(description);
-
-    if (selectedKeys.length === 0) {
-      document.getElementById("main-timeline").appendChild(intro);
-    } else if (document.getElementById("description")) {
-      document.getElementById("main-timeline").removeChild(
-        document.getElementById("description")
-      );
-    }
-  }
-
-  renderIntroMessage();
-
   const highlightNextKeys = (nextKeys) => {
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {

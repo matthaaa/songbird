@@ -22,6 +22,25 @@ function timeline(keysByNoteName, selectedKeys) {
     const note = keysByNoteName[key];
   })
 
+  const renderIntroMessage = () => {
+    intro = document.createElement("p");
+    intro.setAttribute("id", "description");
+    description = document.createTextNode(
+      "Press any key on the keyboard below to get started!"
+    );
+    intro.appendChild(description);
+
+    if (selectedKeys.length === 0) {
+      document.getElementById("main-timeline").appendChild(intro);
+    } else if (document.getElementById("description")) {
+      document.getElementById("main-timeline").removeChild(
+        document.getElementById("description")
+      );
+    }
+  }
+
+  renderIntroMessage();
+
   const removeHighlightColor = (keys) => {
     keys.map((key) => {
       let keyName = keysByNoteName[key].name;
