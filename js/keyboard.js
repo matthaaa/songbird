@@ -86,6 +86,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
 
   updateActionButtons(selectedKeys);
 
+  // TODO: This should be in a separate file.
   const updateNextKeys = (keyId=7) => {
     nextKeys = [];
     lastKey = selectedKeys[selectedKeys.length - 1];
