@@ -46,8 +46,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     }
   }
 
-  renderIntroMessage();
-
   const highlightNextKeys = (nextKeys) => {
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {
@@ -83,8 +81,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       document.getElementById("clear").style.cursor = "pointer";
     }
   }
-
-  updateActionButtons(selectedKeys);
 
   // TODO: This should be in a separate file.
   const updateNextKeys = (keyId=7) => {
@@ -265,4 +261,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
+  renderIntroMessage();
+  updateActionButtons(selectedKeys);
 }
