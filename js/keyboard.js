@@ -4,26 +4,31 @@
 // **************************************************
 
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
-  for (let i = 0; i < Object.keys(keysByNoteName).length; i++) {
-
-    let keyObject = keysByNoteName[i];
-
-    // Render the main keyboard.
-    let div = document.createElement("div");
-    div.setAttribute("id", keyObject.name);
-    div.setAttribute("data-index", String(i));
-    div.setAttribute("class", "white-key initial-valid-key");
-
-    keyName = document.createTextNode(keysByNoteName[i].name[0].toUpperCase());
-    document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
-
-    document.getElementById(keyObject.name).onclick = function() {
-      nextKeys.includes(i) ? playKey(i) : null;
-    }
+  const init = (keysByNoteName) => {
+    document.getElementById("clear").onclick = function() {clearKeys()};
+    document.getElementById("undo").onclick = function() {removeLastKey()};
+    buildKeyboard(keysByNoteName);
   }
 
-  document.getElementById("clear").onclick = function() {clearKeys()};
-  document.getElementById("undo").onclick = function() {removeLastKey()};
+  const buildKeyboard = (keysByNoteName) => {
+    for (let i = 0; i < Object.keys(keysByNoteName).length; i++) {
+
+      let keyObject = keysByNoteName[i];
+
+      // Render the main keyboard.
+      let div = document.createElement("div");
+      div.setAttribute("id", keyObject.name);
+      div.setAttribute("data-index", String(i));
+      div.setAttribute("class", "white-key initial-valid-key");
+
+      keyName = document.createTextNode(keysByNoteName[i].name[0].toUpperCase());
+      document.getElementById("playable-keyboard").appendChild(div).appendChild(keyName);
+
+      document.getElementById(keyObject.name).onclick = function() {
+        nextKeys.includes(i) ? playKey(i) : null;
+      }
+    }
+  }
 
   timelineNotes = document.getElementById("main-timeline");
 
@@ -261,6 +266,7 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
+  init(keysByNoteName);
   renderIntroMessage();
   updateActionButtons(selectedKeys);
 }
