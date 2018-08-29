@@ -4,6 +4,9 @@
 // **************************************************
 
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
+  // ==================================================
+  // Initialize function
+  // ==================================================
   const init = (keysByNoteName) => {
     document.getElementById("clear").onclick = function() {clearKeys()};
     document.getElementById("undo").onclick = function() {removeLastKey()};
@@ -213,6 +216,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   // const timelineCanvas = document.getElementById("timelineCanvas");
   // const context = timelineCanvas.getContext("2d")
 
+  // ==================================================
+  // Play function
+  // ==================================================
   const playKey = (key) => {
     if (selectedKeys.length === 13) {
       return null;
@@ -234,6 +240,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
+  // ==================================================
+  // Clear function
+  // ==================================================
   const clearKeys = () => {
     for (let i = 0; i < selectedKeys.length; i++) {
       timelineNotes.removeChild(timelineNotes.lastChild);
@@ -249,6 +258,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
+  // ==================================================
+  // Undo function
+  // ==================================================
   const removeLastKey = () => {
     if (selectedKeys.length === 0) {
       return null;
@@ -266,6 +278,9 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
     updateActionButtons(selectedKeys);
   }
 
+  // ==================================================
+  // Initialization
+  // ==================================================
   init(keysByNoteName);
   renderIntroMessage();
   updateActionButtons(selectedKeys);
