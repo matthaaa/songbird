@@ -5,9 +5,18 @@
 
 function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   // ==================================================
+  // Variables
+  // ==================================================
+  let allKeys,
+      timelineNotes
+
+  // ==================================================
   // Initialize function
   // ==================================================
   const init = (keysByNoteName) => {
+    allKeys = document.querySelectorAll(".white-key");
+    timelineNotes = document.getElementById("main-timeline");
+
     document.getElementById("clear").onclick = function() {clearKeys()};
     document.getElementById("undo").onclick = function() {removeLastKey()};
     buildKeyboard(keysByNoteName);
@@ -32,10 +41,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
       }
     }
   }
-
-  timelineNotes = document.getElementById("main-timeline");
-
-  const allKeys = document.querySelectorAll(".white-key");
 
   const renderIntroMessage = () => {
     intro = document.createElement("p");
