@@ -3,20 +3,15 @@
 //       to follow best practices and clean up code.
 // **************************************************
 
-function keyboard(keysByNoteName, selectedKeys, nextKeys) {
-  // ==================================================
-  // Variables
-  // ==================================================
-  let allKeys,
-      timelineNotes
-
+function keyboard(
+  keysByNoteName,
+  selectedKeys,
+  nextKeys,
+) {
   // ==================================================
   // Initialize function
   // ==================================================
   const init = (keysByNoteName) => {
-    allKeys = document.querySelectorAll(".white-key");
-    timelineNotes = document.getElementById("main-timeline");
-
     document.getElementById("clear").onclick = function() {clearKeys()};
     document.getElementById("undo").onclick = function() {removeLastKey()};
     buildKeyboard(keysByNoteName);
@@ -60,6 +55,8 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   }
 
   const highlightNextKeys = (nextKeys) => {
+    console.log(nextKeys);
+    console.log(allKeys);
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
@@ -289,4 +286,6 @@ function keyboard(keysByNoteName, selectedKeys, nextKeys) {
   init(keysByNoteName);
   renderIntroMessage();
   updateActionButtons(selectedKeys);
+  let allKeys = document.querySelectorAll(".white-key");
+  let timelineNotes = document.getElementById("main-timeline");
 }

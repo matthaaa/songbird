@@ -3,7 +3,6 @@
 // **************************************************
 
 const init = () => {
-
   // Frequencies of two octaves in the key of C; key integers used to
   // determine relative notes.
   let keysByNoteName = {
@@ -27,7 +26,11 @@ const init = () => {
   let selectedKeys = [];
   let nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
 
-  new keyboard(keysByNoteName, selectedKeys, nextKeys)
+  new keyboard(
+    keysByNoteName,
+    selectedKeys,
+    nextKeys,
+  )
   new timeline(keysByNoteName, selectedKeys);
 }
 
