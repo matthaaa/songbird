@@ -13,7 +13,7 @@ function keyboard(
   let allKeys, timelineNotes;
 
   // ==================================================
-  // Initialize function
+  // Initialize functions
   // ==================================================
   const init = (keysByNoteName) => {
     document.getElementById("clear").onclick = function() {clearKeys()};
@@ -171,7 +171,8 @@ function keyboard(
 
   // ==================================================
   // Algorithm:
-  //
+  // This function determines what keys are selectable
+  // based on the keys currently on the timeline.
   // ==================================================
   const updateNextKeys = (keyId=7) => {
     nextKeys = [];
