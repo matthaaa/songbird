@@ -78,7 +78,6 @@ function timeline(keysByNoteName, selectedKeys) {
   }
 
   const stopPlayback = () => {
-    console.log("stop");
   }
 
 }

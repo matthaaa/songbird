@@ -72,8 +72,6 @@ function keyboard(
   }
 
   const highlightNextKeys = (nextKeys) => {
-    console.log(nextKeys);
-    console.log(allKeys);
     allKeys.forEach((key) => {
       if (nextKeys.includes(Number(key.dataset.index))) {
         key.classList = "white-key valid-key";
