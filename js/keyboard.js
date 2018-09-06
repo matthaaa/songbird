@@ -11,10 +11,20 @@ function keyboard(
   // ==================================================
   // Initialize function
   // ==================================================
+  let allKeys, timelineNotes;
+
+  // ==================================================
+  // Initialize function
+  // ==================================================
   const init = (keysByNoteName) => {
     document.getElementById("clear").onclick = function() {clearKeys()};
     document.getElementById("undo").onclick = function() {removeLastKey()};
     buildKeyboard(keysByNoteName);
+
+    // Define allKeys and timelineNotes variables AFTER html keyboard is
+    // built.
+    defineAllKeys();
+    defineTimelineNotes();
   }
 
   const buildKeyboard = (keysByNoteName) => {
@@ -35,6 +45,14 @@ function keyboard(
         nextKeys.includes(i) ? playKey(i) : null;
       }
     }
+  }
+
+  const defineAllKeys = () => {
+    allKeys = document.querySelectorAll(".white-key");
+  }
+
+  const defineTimelineNotes = () => {
+    timelineNotes = document.getElementById("main-timeline");
   }
 
   const renderIntroMessage = () => {
@@ -286,6 +304,4 @@ function keyboard(
   init(keysByNoteName);
   renderIntroMessage();
   updateActionButtons(selectedKeys);
-  let allKeys = document.querySelectorAll(".white-key");
-  let timelineNotes = document.getElementById("main-timeline");
 }
