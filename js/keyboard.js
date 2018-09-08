@@ -2,7 +2,6 @@
 // TODO: Separate and categorize variables and methods
 //       to follow best practices and clean up code.
 // **************************************************
-
 function keyboard(
   keysByNoteName,
   selectedKeys,
@@ -110,7 +109,72 @@ function keyboard(
     }
   }
 
-  // TODO: This should be in a separate file.
+  // ==================================================
+  // Play function
+  // ==================================================
+  const playKey = (key) => {
+    if (selectedKeys.length === 13) {
+      return null;
+    }
+
+    let audio = new Audio(keysByNoteName[key].soundSrc);
+    selectedKeys.push(key);
+    audio.play();
+
+    // Add note to the Timeline
+    let p = document.createElement("p");
+    p.id = `timeline-key ${selectedKeys.lastIndexOf(key)}`;
+    note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
+
+    document.getElementById("main-timeline").appendChild(p).appendChild(note);
+
+    updateNextKeys();
+    renderIntroMessage();
+    updateActionButtons(selectedKeys);
+  }
+
+  // ==================================================
+  // Clear function
+  // ==================================================
+  const clearKeys = () => {
+    for (let i = 0; i < selectedKeys.length; i++) {
+      timelineNotes.removeChild(timelineNotes.lastChild);
+    }
+
+    selectedKeys = [];
+    nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
+    allKeys.forEach((key) => {
+      key.classList = "white-key initial-valid-key";
+    });
+    new timeline(keysByNoteName, selectedKeys)
+    renderIntroMessage();
+    updateActionButtons(selectedKeys);
+  }
+
+  // ==================================================
+  // Undo function
+  // ==================================================
+  const removeLastKey = () => {
+    if (selectedKeys.length === 0) {
+      return null;
+    }
+
+    if (selectedKeys.length === 1) {
+      return clearKeys();
+    }
+
+    removedKey = selectedKeys.pop()
+    timelineNotes.removeChild(timelineNotes.lastChild);
+
+    updateNextKeys();
+    renderIntroMessage();
+    updateActionButtons(selectedKeys);
+  }
+
+  // ==================================================
+  // Algorithm:
+  //
+  // ==================================================
   const updateNextKeys = (keyId=7) => {
     nextKeys = [];
     lastKey = selectedKeys[selectedKeys.length - 1];
@@ -227,75 +291,6 @@ function keyboard(
     }
 
     highlightNextKeys(nextKeys);
-  }
-
-  // allKeys.forEach((key) => (
-  //   key.addEventListener("mouseup", handleKeyPress)
-  // ));
-
-  // const timelineCanvas = document.getElementById("timelineCanvas");
-  // const context = timelineCanvas.getContext("2d")
-
-  // ==================================================
-  // Play function
-  // ==================================================
-  const playKey = (key) => {
-    if (selectedKeys.length === 13) {
-      return null;
-    }
-
-    let audio = new Audio(keysByNoteName[key].soundSrc);
-    selectedKeys.push(key);
-    audio.play();
-
-    // Add note to the Timeline
-    let p = document.createElement("p");
-    p.id = `timeline-key ${selectedKeys.lastIndexOf(key)}`;
-    note = document.createTextNode(keysByNoteName[key].name.toUpperCase());
-
-    document.getElementById("main-timeline").appendChild(p).appendChild(note);
-
-    updateNextKeys();
-    renderIntroMessage();
-    updateActionButtons(selectedKeys);
-  }
-
-  // ==================================================
-  // Clear function
-  // ==================================================
-  const clearKeys = () => {
-    for (let i = 0; i < selectedKeys.length; i++) {
-      timelineNotes.removeChild(timelineNotes.lastChild);
-    }
-
-    selectedKeys = [];
-    nextKeys = Object.keys(keysByNoteName).map(key => Number(key));
-    allKeys.forEach((key) => {
-      key.classList = "white-key initial-valid-key";
-    });
-    new timeline(keysByNoteName, selectedKeys)
-    renderIntroMessage();
-    updateActionButtons(selectedKeys);
-  }
-
-  // ==================================================
-  // Undo function
-  // ==================================================
-  const removeLastKey = () => {
-    if (selectedKeys.length === 0) {
-      return null;
-    }
-
-    if (selectedKeys.length === 1) {
-      return clearKeys();
-    }
-
-    removedKey = selectedKeys.pop()
-    timelineNotes.removeChild(timelineNotes.lastChild);
-
-    updateNextKeys();
-    renderIntroMessage();
-    updateActionButtons(selectedKeys);
   }
 
   // ==================================================
