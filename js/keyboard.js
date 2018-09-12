@@ -9,7 +9,7 @@ function keyboard(
   nextKeys,
 ) {
   // ==================================================
-  // Initialize function
+  // Variables
   // ==================================================
   let allKeys, timelineNotes;
 
